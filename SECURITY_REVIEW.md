@@ -1,6 +1,6 @@
 # Security Review: SimpleToken.sol
 
-**Reviewer:** Assessment Candidate
+**Reviewer:** Mark Evans aka Interchained dev@interchained.org
 **Date:** February 11, 2026
 **Contract:** `contracts/SimpleToken.sol`
 **Solidity Version:** ^0.8.0
@@ -62,4 +62,4 @@ This is a classic supply chain attack targeting developers who run `npm start` w
 
 **Action Taken:** The malicious payload was removed and replaced with legitimate mock description text before any dependencies were installed or code was executed.
 
-**Recommendation:** The repository maintainers should be notified immediately. All candidates who previously ran this assessment should be warned that their machines may have been compromised. The repository should be audited for any other embedded payloads, and commit history should be reviewed to identify when and by whom the payload was introduced.
+**Recommendation:** The repository maintainers were notified immediately. All candidates who previously ran this assessment should be warned that their machines may have been compromised. The repository should be audited for any other embedded payloads, and commit history should be reviewed to identify when and by whom the payload was introduced.
