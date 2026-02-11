@@ -1,0 +1,407 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: #0f0f1a;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+.App-header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-bottom: 1px solid #2a2a4a;
+  padding: 1.5rem 2rem;
+}
+
+.logo-area {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-area h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: #8888aa;
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.App-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.status-filter {
+  padding: 0.5rem 0.75rem;
+  background: #1a1a2e;
+  color: #e0e0e0;
+  border: 1px solid #3a3a5a;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.status-filter:focus {
+  border-color: #6c5ce7;
+}
+
+.connect-wallet-btn {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+  background: linear-gradient(135deg, #6c5ce7, #a855f7);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.connect-wallet-btn:hover {
+  opacity: 0.9;
+}
+
+.wallet-address {
+  font-family: ui-monospace, 'SF Mono', monospace;
+  font-size: 0.85rem;
+  color: #4ade80;
+  background: #1a2e1a;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #2a4a2a;
+}
+
+.wallet-error,
+.error-message {
+  width: 100%;
+  margin: 0.5rem 0;
+  color: #f87171;
+  font-size: 0.9rem;
+  background: #2e1a1a;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #4a2a2a;
+}
+
+.loading-spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #2a2a4a;
+  border-top-color: #6c5ce7;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: #8888aa;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.projects-section {
+  margin-bottom: 3rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.project-card:hover {
+  border-color: #4a4a6a;
+  transform: translateY(-2px);
+}
+
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.project-description {
+  font-size: 0.85rem;
+  color: #8888aa;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.project-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.project-chain {
+  font-size: 0.85rem;
+  color: #a0a0c0;
+  background: #252540;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+}
+
+.project-tvl {
+  font-size: 0.85rem;
+  color: #4ade80;
+  font-weight: 500;
+}
+
+.project-status {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.project-status--active {
+  background: #1a2e1a;
+  color: #4ade80;
+  border: 1px solid #2a4a2a;
+}
+
+.project-status--in-progress {
+  background: #2e2a1a;
+  color: #fbbf24;
+  border: 1px solid #4a3a2a;
+}
+
+.project-status--archived {
+  background: #2e1a1a;
+  color: #f87171;
+  border: 1px solid #4a2a2a;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech-badge {
+  font-size: 0.75rem;
+  color: #a0a0c0;
+  background: #252540;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.tech-badge--more {
+  color: #6c5ce7;
+}
+
+.transactions-section {
+  margin-bottom: 3rem;
+}
+
+.filter-badge {
+  font-size: 0.8rem;
+  background: #1a2e1a;
+  color: #4ade80;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #2a4a2a;
+}
+
+.count-badge {
+  font-size: 0.8rem;
+  color: #8888aa;
+  background: #252540;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #8888aa;
+  background: #1a1a2e;
+  border-radius: 12px;
+  border: 1px dashed #2a2a4a;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #2a2a4a;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1a1a2e;
+}
+
+.transactions-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #8888aa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #151528;
+  border-bottom: 1px solid #2a2a4a;
+}
+
+.transactions-table td {
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #1f1f35;
+}
+
+.transactions-table tr:hover {
+  background: #1f1f35;
+}
+
+.transactions-table tr:last-child td {
+  border-bottom: none;
+}
+
+.address {
+  font-family: ui-monospace, 'SF Mono', monospace;
+  font-size: 0.8rem;
+  color: #a0a0c0;
+}
+
+.address--highlight {
+  color: #6c5ce7;
+  font-weight: 500;
+}
+
+.method-badge {
+  font-size: 0.75rem;
+  background: #252540;
+  color: #c0c0e0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: ui-monospace, 'SF Mono', monospace;
+}
+
+.token-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+.value-cell {
+  font-family: ui-monospace, 'SF Mono', monospace;
+  color: #fff;
+}
+
+.chain-cell {
+  color: #a0a0c0;
+}
+
+.date-cell {
+  color: #8888aa;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+}
+
+.status-dot--confirmed {
+  background: #4ade80;
+}
+
+.status-dot--pending {
+  background: #fbbf24;
+}
+
+.status-dot--failed {
+  background: #f87171;
+}
+
+@media (max-width: 768px) {
+  .App-main {
+    padding: 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    margin-left: 0;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
